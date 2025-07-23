@@ -10,7 +10,8 @@ const dados = []
 
 menuPrincipal();
 function menuPrincipal(){
-    console.log (`==== Menu Principal ====
+    console.log (`
+==== Menu Principal ====
     
     1 - Adicionar
     2 - Listar
@@ -33,4 +34,41 @@ function menuPrincipal(){
             break;
         }
     });
+}
+
+function adicionar() {
+    rl.question("Nome: ", (nome) => {
+        rl.question("Quantidade: ", (quantidade) => {
+            rl.question("Valor: ", (valor) => {
+                rl.question("Categoria: ", (categoria) => {
+                    let valorArrumado = parseFloat(valor)
+                    const estoque = {
+                        nome,
+                        quantidade,
+                        valorArrumado,
+                        categoria
+                    }
+                    dados.push(estoque)
+                    console.log("Adicionado com sucesso! 🫃\n")
+                    menuPrincipal()
+                })
+            })
+        })
+    })
+}
+
+function listar() {
+    rl.question("Tecle 1- para exibir todos ou 2- para filtrar ", (input) => {
+        if (input == "1") {
+            dados.forEach((a, i) => {
+                console.log(`${i + 1} - ${a.nome}, ${a.quantidade} unidades, R$: ${a.valorArrumado}, ${a.categoria}`);
+              });
+              menuPrincipal()
+
+        } else if (input == "2") {
+
+        } else {
+            console.log("Não entendi seu burro")
+        }
+    }) 
 }
