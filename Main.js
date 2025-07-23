@@ -7,7 +7,6 @@ const rl = readline.createInterface({
 
 let dados = []
 
-// Exibe o menu apenas
 function menuPrincipal(){
     console.log (`
 ==== Menu Principal ====
@@ -21,7 +20,6 @@ function menuPrincipal(){
     `)
 }
 
-// Só cria uma vez esse listener!
 rl.on("line", (inputMenuPrincipal) => {
     const inputMP = parseInt(inputMenuPrincipal.trim());
 
@@ -41,7 +39,7 @@ rl.on("line", (inputMenuPrincipal) => {
     }
 });
 
-menuPrincipal(); // chamada inicial
+menuPrincipal();
 
 function adicionar() {
     rl.question("Nome: ", (nome) => {
@@ -56,7 +54,7 @@ function adicionar() {
                         categoria
                     }
                     dados.push(estoque)
-                    console.log("Adicionado com sucesso! ✅\n")
+                    console.log("Adicionado com sucesso!")
                     menuPrincipal()
                 })
             })
